@@ -164,10 +164,6 @@ const ScrollableTabBar = createReactClass({
       width: this.state._widthTabUnderline,
     };
 
-    const {
-      onScroll,
-    } = this.props;
-
     return <View
       style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
       onLayout={this.onContainerLayout}
@@ -175,13 +171,12 @@ const ScrollableTabBar = createReactClass({
       <ScrollView
         ref={(scrollView) => { this._scrollView = scrollView; }}
         horizontal={true}
+        keyboardShouldPersistTaps="always" 
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         directionalLockEnabled={true}
         bounces={false}
         scrollsToTop={false}
-        onScroll={onScroll}
-        scrollEventThrottle={16}
       >
         <View
           style={[styles.tabs, {width: this.state._containerWidth, }, this.props.tabsContainerStyle, ]}
